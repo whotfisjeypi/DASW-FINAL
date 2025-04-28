@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adopta una Mascota</title>
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+
+  <nav id="navbar">
+    <a href="#inicio">Inicio</a>
+    <a href="#buscar">Buscar Mascota</a>
+    <a href="#registrar">Registrar Mascota</a>
+    <a href="#solicitudes">Mis Solicitudes</a>
+    <a href="#perfil">Mi Perfil</a>
+    <a href="#cerrar">Cerrar Sesión</a>
+  </nav>
+
+  <header id="inicio">
+    <h1>¡Encuentra a tu mejor amigo!</h1>
+    <p>Historias reales de adopciones exitosas te esperan.</p>
+  </header>
+
+  <section id="buscar">
+    <h2>Buscar Mascota</h2>
+    <form id="search-form">
+      <input type="text" placeholder="Ciudad" required>
+      <select required>
+        <option value="">Tipo de Animal</option>
+        <option value="perro">Perro</option>
+        <option value="gato">Gato</option>
+      </select>
+      <input type="text" placeholder="Raza" required>
+      <input type="number" placeholder="Edad (años)" required>
+      <button type="submit">Buscar</button>
+    </form>
+    <div id="pet-results"></div>
+  </section>
+
+  <section id="registrar">
+    <h2>Registrar Nueva Mascota</h2>
+    <form id="register-form">
+      <input type="text" placeholder="Nombre" required>
+      <select required>
+        <option value="">Tipo de Animal</option>
+        <option value="perro">Perro</option>
+        <option value="gato">Gato</option>
+      </select>
+      <input type="text" placeholder="Raza" required>
+      <input type="number" placeholder="Edad (años)" required>
+      <input type="text" placeholder="Ciudad" required>
+      <textarea placeholder="Estado de salud y descripción" required></textarea>
+      <input type="file" accept="image/*" required>
+      <button type="submit">Registrar Mascota</button>
+    </form>
+  </section>
+
+  <section id="solicitudes">
+    <h2>Mis Solicitudes</h2>
+    <div id="request-list"></div>
+  </section>
+
+  <section id="perfil">
+    <h2>Mi Perfil</h2>
+    <form id="profile-form">
+      <input type="text" placeholder="Nombre" required>
+      <input type="email" placeholder="Correo electrónico" required>
+      <input type="password" placeholder="Nueva Contraseña" required>
+      <button type="submit">Actualizar Perfil</button>
+    </form>
+  </section>
+
+  <script src="scripts/app.js"></script>
+</body>
+</html>
