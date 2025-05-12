@@ -1,4 +1,4 @@
-require('dotenv').config();
+require('dotenv').config();        // <- Debe ir primero
 const express = require('express');
 const path = require('path');
 const cors = require('cors');
@@ -7,36 +7,37 @@ const helmet = require('helmet');
 const createError = require('http-errors');
 
 const connectDB = require('./src/config/db');
-const routes = require('./src/routes/auth.routes'); // Placeholder import para agrupar rutas
-const apiRoutes = require('./src/routes'); // Se agruparán todas las rutas API
-
+const apiRoutes = require('./src/routes');       // Agrupa todas tus rutas API
 const { errorHandler } = require('./src/middlewares/errorHandler');
 
 const app = express();
 
-// Conexión a la BD
+// 1) Conectar a MongoDB
 connectDB();
 
-// Middlewares
+// 2) Middlewares globales
 app.use(helmet());
 app.use(morgan('dev'));
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors());
-  
-// Rutas de API con prefijo /api/v1
+
+// 3) Rutas API (prefijo /api/v1)
 app.use('/api/v1', apiRoutes);
 
-// Static serve (sin eliminar el existente)
-app.use(express.static(path.join(__dirname, 'public')));
+// 4) Servir el frontend estático desde ../frontend/public
+const frontendPath = path.join(__dirname, '..', 'frontend', 'public');
+app.use(express.static(frontendPath));
 
-// Catch 404 and forward to error handler
-app.use((req, res, next) => {
-  next(createError(404, 'Not Found'));
+// 5) Catch-all para Vue/React o Deep links, servir Home.html
+app.get('*', (req, res, next) => {
+  res.sendFile(path.join(frontendPath, 'Home.html'));
 });
 
-// Error handler middleware
+// 6) Error 404 y handler final
+app.use((req, res, next) => next(createError(404, 'Not Found')));
 app.use(errorHandler);
 
+// 7) Levantar servidor
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Servidor corriendo en puerto ${PORT}`));
