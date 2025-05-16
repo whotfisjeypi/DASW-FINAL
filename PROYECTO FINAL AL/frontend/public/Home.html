@@ -99,9 +99,9 @@
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item"> <a class="nav-link" href="/home">Inicio</a>
                 </li>
-                <li class="nav-item" id="misSolicitudesNavItem" style="display: none;"> <a class="nav-link" href="/mis-solicitudes">Mis Solicitudes</a>
+                <li class="nav-item" id="misSolicitudesNavItem" style="display: list-item;"> <a class="nav-link" href="/mis-solicitudes">Mis Solicitudes</a>
                 </li>
-                <li class="nav-item" id="registrarMascotaNavItem" style="display: none;"> <a class="nav-link" href="/registrar-mascota">Registrar Mascota</a>
+                <li class="nav-item" id="registrarMascotaNavItem" style="display: list-item;"> <a class="nav-link" href="/registrar-mascota">Registrar Mascota</a>
                 </li>
                 
                 <span id="navUserSection">
@@ -215,22 +215,8 @@
                         </div>
                     </div>
                 </div>
-                
-                <!-- Paginación -->
-                <div class="d-flex justify-content-center mt-4">
-                    <nav aria-label="Navegación de páginas">
-                        <ul class="pagination">
-                            <li class="page-item disabled">
-                                <a class="page-link" href="#" tabindex="-1">Anterior</a>
-                            </li>
-                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item">
-                                <a class="page-link" href="#">Siguiente</a>
-                            </li>
-                        </ul>
-                    </nav>
+            
+                <div id="paginationControls" class="d-flex justify-content-center mt-4">
                 </div>
             </div>
         </div>

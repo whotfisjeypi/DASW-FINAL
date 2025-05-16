@@ -1,191 +1,65 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Perfil - Adottami</title>
-  <link rel="stylesheet" href="/styles/main.css">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <title>Perfil - Adottami</title>
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css">
 </head>
 <body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand font-weight-bold" href="/home">Adottami</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="/home">Inicio</a></li>
+                    <li class="nav-item" id="misSolicitudesNavItem" style="display: none;"><a class="nav-link" href="/mis-solicitudes">Mis Solicitudes</a></li>
+                    <li class="nav-item" id="registrarMascotaNavItem" style="display: none;"><a class="nav-link" href="/registrar-mascota">Registrar Mascota</a></li>
+                    <span id="navUserSection">
+                        </span>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark">
-    <a class="navbar-brand" href="/home">Adottami</a>
-    <div class="collapse navbar-collapse">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-toggle="dropdown">Mi cuenta</a>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#loginModal">Ingresar</a>
-            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#registerModal">Registrarme</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="/perfil">Mi Perfil</a>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </nav>
+    <section class="container mt-5">
+        <h2>Mi Perfil</h2>
+        <form id="profileForm" class="mt-4">
+            <div class="form-group">
+                <label for="profileName">Nombre Completo</label>
+                <input type="text" class="form-control" id="profileName" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="profileEmail">Correo Electrónico</label>
+                <input type="email" class="form-control" id="profileEmail" name="email" readonly> </div>
+            <div class="form-group">
+                <label for="profileCity">Ciudad</label>
+                <input type="text" class="form-control" id="profileCity" name="city" required>
+            </div>
+            <button type="submit" class="btn btn-dark">Actualizar Perfil</button>
+            <button type="button" class="btn btn-outline-danger ml-2" id="changePasswordButton">Cambiar Contraseña</button>
+        </form>
+        
+        <div id="userPetsSection" class="mt-5" style="display:none;">
+            <h3>Mis Mascotas Publicadas</h3>
+            <div id="userPetsList" class="row">
+                </div>
+        </div>
+    </section>
 
-  <section class="container mt-5">
-    <h2>Mi Perfil</h2>
-    <form class="mt-4">
-      <div class="form-group">
-        <label>Nombre Completo</label>
-        <input type="text" class="form-control" value="Juan Pérez" required>
-      </div>
-      <div class="form-group">
-        <label>Correo Electrónico</label>
-        <input type="email" class="form-control" value="juan@example.com" required>
-      </div>
-      <div class="form-group">
-        <label>Ciudad</label>
-        <input type="text" class="form-control" value="Guadalajara" required>
-      </div>
-      <button type="submit" class="btn btn-dark">Actualizar Perfil</button>
-      <button type="button" class="btn btn-outline-danger ml-2">Cambiar Contraseña</button>
-    </form>
-  </section>
+    <footer class="footer mt-auto py-3 bg-dark text-white">
+        <div class="container text-center">
+            <p class="mb-0">&copy; 2025 Adottami. Todos los derechos reservados.</p>
+        </div>
+    </footer>
 
-   <!-- Modal de Login -->
-   <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel"
-   aria-hidden="true">
-   <div class="modal-dialog" role="document">
-       <div class="modal-content">
-           <div class="modal-header">
-               <h5 class="modal-title" id="loginModalLabel">Iniciar Sesión</h5>
-               <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
-                   <span aria-hidden="true">&times;</span>
-               </button>
-           </div>
-           <div class="modal-body">
-               <form id="loginForm">
-                   <div class="form-group">
-                       <label for="loginEmail">Correo electrónico</label>
-                       <div class="input-group">
-                           <input type="email" class="form-control" id="loginEmail" placeholder="correo@ejemplo.com" required>
-                           <div class="input-group-append">
-                               <span class="input-group-text"><i class="fas fa-envelope"></i></span>
-                           </div>
-                       </div>
-                   </div>
-                   <div class="form-group">
-                       <label for="loginPassword">Contraseña</label>
-                       <div class="input-group">
-                           <input type="password" class="form-control" id="loginPassword" placeholder="Contraseña" required>
-                           <div class="input-group-append">
-                               <span class="input-group-text"><i class="fas fa-lock"></i></span>
-                           </div>
-                       </div>
-                   </div>
-                   <div class="form-group">
-                       <a href="#" id="forgotPasswordLink">¿Olvidaste tu contraseña?</a>
-                   </div>
-                   <button type="submit" class="btn btn-dark btn-block">Ingresar</button>
-               </form>
-           </div>
-           <div class="modal-footer">
-               <p class="w-100 text-center">¿No tienes cuenta? <a href="#" id="registerLink" data-dismiss="modal" data-toggle="modal" data-target="#registerModal">Regístrate aquí</a></p>
-           </div>
-       </div>
-   </div>
-</div>
-
-<!-- Modal de Registro -->
-<div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel"
-   aria-hidden="true">
-   <div class="modal-dialog" role="document">
-       <div class="modal-content">
-           <div class="modal-header">
-               <h5 class="modal-title" id="registerModalLabel">Registrarse</h5>
-               <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
-                   <span aria-hidden="true">&times;</span>
-               </button>
-           </div>
-           <div class="modal-body">
-               <form id="registerForm">
-                   <div class="form-group">
-                       <label for="registerName">Nombre completo</label>
-                       <input type="text" class="form-control" id="registerName" placeholder="Tu nombre" required>
-                   </div>
-                   <div class="form-group">
-                       <label for="registerEmail">Correo electrónico</label>
-                       <input type="email" class="form-control" id="registerEmail" placeholder="correo@ejemplo.com" required>
-                   </div>
-                   <div class="form-group">
-                       <label for="registerPassword">Contraseña</label>
-                       <input type="password" class="form-control" id="registerPassword" 
-                           placeholder="Contraseña" 
-                           pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" 
-                           title="Debe contener al menos una mayúscula, una minúscula, un número y mínimo 6 caracteres" required>
-                   </div>
-                   <div class="form-group">
-                       <label for="registerCity">Ciudad</label>
-                       <select class="form-control" id="registerCity" required>
-                           <option value="">Selecciona tu ciudad</option>
-                           <option value="guadalajara">Guadalajara</option>
-                           <option value="zapopan">Zapopan</option>
-                           <option value="tlaquepaque">Tlaquepaque</option>
-                           <option value="tonala">Tonalá</option>
-                       </select>
-                   </div>
-                   <button type="submit" class="btn btn-dark btn-block">Registrarme</button>
-               </form>
-           </div>
-           <div class="modal-footer">
-               <p class="w-100 text-center">¿Ya tienes cuenta? <a href="#" id="loginLink" data-dismiss="modal" data-toggle="modal" data-target="#loginModal">Inicia sesión</a></p>
-           </div>
-       </div>
-   </div>
-</div>
-
-<!-- Footer -->
-<footer class="footer">
-   <div class="container">
-       <div class="row">
-           <div class="col-md-4">
-               <h5>Adottami</h5>
-               <p>Plataforma de adopción de mascotas segura y confiable.</p>
-           </div>
-           <div class="col-md-4">
-               <h5>Enlaces útiles</h5>
-               <ul class="list-unstyled">
-                   <li><a href="#" class="text-light">Acerca de nosotros</a></li>
-                   <li><a href="#" class="text-light">Preguntas frecuentes</a></li>
-                   <li><a href="#" class="text-light">Términos y condiciones</a></li>
-                   <li><a href="#" class="text-light">Política de privacidad</a></li>
-               </ul>
-           </div>
-           <div class="col-md-4">
-               <h5>Contáctanos</h5>
-               <ul class="list-unstyled">
-                   <li><i class="fas fa-envelope mr-2"></i> contacto@adottami.com</li>
-                   <li><i class="fas fa-phone mr-2"></i> (33) 1234-5678</li>
-                   <li class="mt-3">
-                       <a href="#" class="text-light mr-2"><i class="fab fa-facebook fa-lg"></i></a>
-                       <a href="#" class="text-light mr-2"><i class="fab fa-twitter fa-lg"></i></a>
-                       <a href="#" class="text-light mr-2"><i class="fab fa-instagram fa-lg"></i></a>
-                   </li>
-               </ul>
-           </div>
-       </div>
-       <hr class="bg-light">
-       <div class="text-center">
-           <p>&copy; 2025 Adottami. Todos los derechos reservados.</p>
-       </div>
-   </div>
-</footer>
-
-  
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-  </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-  </script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-  </script>
-  <script src="/scripts/app.js"></script>
-
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="/scripts/app.js"></script>
 </body>
 </html>

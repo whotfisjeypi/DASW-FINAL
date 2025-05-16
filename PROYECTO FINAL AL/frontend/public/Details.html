@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css">
-    <link rel="stylesheet" href="/styles/main.css"> <style>
-        /* Estilos específicos de Details.html que ya tenías */
+    <link rel="stylesheet" href="/styles/main.css">
+    <style>
         .pet-image { height: 400px; object-fit: cover; border-radius: 10px; }
         .pet-thumbnail { height: 80px; width: 100%; object-fit: cover; cursor: pointer; border-radius: 5px; transition: opacity 0.3s; }
         .pet-thumbnail:hover { opacity: 0.8; }
@@ -61,7 +61,7 @@
                     <div class="d-flex align-items-center mb-3">
                         <div class="feature-icon"><i class="fas fa-paw"></i></div>
                         <div>
-                            <h6 class="mb-0">Tipo de animal</h6>
+                            <h6 class="mb-0">Tipo y Raza</h6>
                             <p class="mb-0" id="petTypeBreed">Cargando...</p>
                         </div>
                     </div>
@@ -116,18 +116,18 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar"><span aria-hidden="true">&times;</span></button>
                 </div>
                 <div class="modal-body">
-                    <form id="loginForm">
-                        <div class="form-group">
-                            <label for="loginEmailDetails">Correo electrónico</label> <input type="email" class="form-control" id="loginEmailDetails" placeholder="correo@ejemplo.com" required>
+                    <form id="loginForm"> <div class="form-group">
+                            <label for="loginEmail">Correo electrónico</label>
+                            <input type="email" class="form-control" id="loginEmail" placeholder="correo@ejemplo.com" required>
                         </div>
                         <div class="form-group">
-                            <label for="loginPasswordDetails">Contraseña</label>
-                            <input type="password" class="form-control" id="loginPasswordDetails" placeholder="Contraseña" required>
+                            <label for="loginPassword">Contraseña</label>
+                            <input type="password" class="form-control" id="loginPassword" placeholder="Contraseña" required>
                         </div>
                         <button type="submit" class="btn btn-dark btn-block">Ingresar</button>
                     </form>
                 </div>
-                 <div class="modal-footer">
+                <div class="modal-footer">
                     <p class="w-100 text-center">¿No tienes cuenta? <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#registerModal">Regístrate aquí</a></p>
                 </div>
             </div>
@@ -137,25 +137,25 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                     <h5 class="modal-title" id="registerModalLabel">Registrarse</h5>
+                    <h5 class="modal-title" id="registerModalLabel">Registrarse</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar"><span aria-hidden="true">&times;</span></button>
                 </div>
                 <div class="modal-body">
-                    <form id="registerFormDetails"> <div class="form-group">
-                            <label for="registerNameDetails">Nombre completo</label>
-                            <input type="text" class="form-control" id="registerNameDetails" placeholder="Tu nombre" required>
+                    <form id="registerForm"> <div class="form-group">
+                            <label for="registerName">Nombre completo</label>
+                            <input type="text" class="form-control" id="registerName" placeholder="Tu nombre" required>
                         </div>
                         <div class="form-group">
-                            <label for="registerEmailDetails">Correo electrónico</label>
-                            <input type="email" class="form-control" id="registerEmailDetails" placeholder="correo@ejemplo.com" required>
+                            <label for="registerEmail">Correo electrónico</label>
+                            <input type="email" class="form-control" id="registerEmail" placeholder="correo@ejemplo.com" required>
                         </div>
                         <div class="form-group">
-                            <label for="registerPasswordDetails">Contraseña</label>
-                            <input type="password" class="form-control" id="registerPasswordDetails" placeholder="Contraseña" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" title="Debe contener al menos una mayúscula, una minúscula, un número y mínimo 6 caracteres">
+                            <label for="registerPassword">Contraseña</label>
+                            <input type="password" class="form-control" id="registerPassword" placeholder="Contraseña" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" title="Debe contener al menos una mayúscula, una minúscula, un número y mínimo 6 caracteres">
                         </div>
                         <div class="form-group">
-                            <label for="registerCityDetails">Ciudad</label>
-                             <select class="form-control" id="registerCityDetails" required>
+                            <label for="registerCity">Ciudad</label>
+                            <select class="form-control" id="registerCity" required>
                                 <option value="">Selecciona tu ciudad</option>
                                 <option value="guadalajara">Guadalajara</option>
                                 <option value="zapopan">Zapopan</option>
@@ -173,22 +173,15 @@
         </div>
     </div>
     
-    <footer class="footer"> <div class="container">
+    <footer class="footer">
+        <div class="container">
             <div class="text-center"><p>&copy; 2025 Adottami. Todos los derechos reservados.</p></div>
         </div>
     </footer>
 
-
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-  </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-  </script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-  </script>
-  <script src="/scripts/app.js"></script>
-
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="/scripts/app.js"></script>
 </body>
 </html>
