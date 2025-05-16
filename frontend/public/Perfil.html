@@ -175,7 +175,35 @@
    </div>
 </footer>
 
+  <link rel="stylesheet" href="/styles/main.css">
+
   <script src="/scripts/app.js"></script>
+  <script src="app.js" defer></script>
+  <script>
+      document.addEventListener('DOMContentLoaded', async () => {
+          const userId = getUserId();
+          if (!userId) {
+
+              window.location = 'login.html';
+              return;
+          }
+
+          try {
+              const res = await authFetch(`/api/users/${userId}`);
+              if (!res.ok) throw await res.json();
+              const user = await res.json();
+
+              document.getElementById('nameField').textContent  = user.name;
+              document.getElementById('emailField').textContent = user.email;
+              document.getElementById('cityField').textContent  = user.city;
+          } catch (err) {
+              console.error(err);
+              clearToken();
+              window.location = 'login.html';
+          }
+      });
+  </script>
+
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
