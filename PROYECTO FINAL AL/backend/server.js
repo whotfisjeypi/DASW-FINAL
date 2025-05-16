@@ -19,9 +19,6 @@ app.use('/api/adoption-requests', require('./routes/adoptionRequestRoutes'));
 
 
 
-app.use('/api/users', require('./routes/userRoutes')); 
-
-
 // Servir archivos estáticos del frontend
 app.use(express.static(path.join(__dirname, '..', 'frontend', 'public')));
 

@@ -1,0 +1,39 @@
+* [33mc4689ed[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;32mrespaldo/before-deletion[m[33m)[m Se arreglo problemas con el agregado de mascotas
+* [33m70bfb20[m Se borro otra carpeta mosca
+* [33mce5d865[m Borrar archivos/carpetas innecesarios
+* [33mcd7989c[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m Se quitaron los <Script> que hacian mosca
+* [33m30e8818[m Se subio Carpeta preeliminar donde Pablo estaba trabajando
+* [33mce57fb5[m[33m ([m[1;32mbugfix/minierrors[m[33m)[m Add files via upload
+* [33meab8234[m modificacion para solucion de errores
+* [33mba40587[m l amama de la mamaa
+*   [33m6688b53[m Merge branch 'main' of https://github.com/whotfisjeypi/DASW-FINAL
+[32m|[m[33m\[m  
+[32m|[m * [33mb0caa2a[m Se borro pet adoptionplanoseque
+* [33m|[m [33md3b6efa[m creacion http test
+[33m|[m[33m/[m  
+* [33m655a892[m Se añadio .gitignore y modifique server.js Y el .env.example lo modifique a .env
+* [33mc4b4295[m commit del front
+* [33me1408cf[m asd
+* [33m3a7e5ed[m x
+* [33me3730b8[m backend
+* [33mfae6ac7[m Eliminacion de server.js extra
+* [33m3499e30[m idk
+* [33m9c65ad0[m Añadir nuevos archivos (package.json, package-lock.json, product.js, update.json) y actualizar server.js
+* [33m154954a[m Se creo Details para mostrar detalles de cada adopcion
+* [33m722762a[m Mover Home.html de src/ a public/
+* [33m0235cb9[m Se movio Home
+*   [33m9890fe0[m Merge branch 'main' of https://github.com/whotfisjeypi/DASW-FINAL
+[34m|[m[35m\[m  
+[34m|[m * [33mbf47d9b[m Se elimino el Index.html y se usara Home.html
+* [35m|[m [33md9a4a61[m Merge branch 'main' of https://github.com/whotfisjeypi/DASW-FINAL
+[36m|[m[35m\[m[35m|[m 
+[36m|[m * [33m3012739[m Version Pablo de la Pag Web
+[36m|[m * [33m8cfc16e[m Update Home.js
+* [1;31m|[m [33mdb450a9[m server
+[1;31m|[m[1;31m/[m  
+* [33med65542[m Update Home.js
+* [33mdacc0e4[m ups la regue
+* [33mc515759[m oooouuuuu yeaaaaa
+* [33ma711f8a[m alooo
+* [33mb2eeb1f[m Add files via upload
+* [33m94b7d15[m Initial commit
