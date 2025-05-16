@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Mis Solicitudes - Adottami</title>
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css">
+    <style>
+        html, body { height: 100%; }
+        body { display: flex; flex-direction: column; min-height: 100vh; }
+        main { flex: 1; }
+        /* Puedes añadir estilos específicos para las tarjetas de solicitud aquí si es necesario */
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand font-weight-bold" href="/home">Adottami</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="/home">Inicio</a></li>
+                    <li class="nav-item" id="misSolicitudesNavItem" style="display: none;"><a class="nav-link" href="/mis-solicitudes">Mis Solicitudes</a></li>
+                    <li class="nav-item" id="registrarMascotaNavItem" style="display: none;"><a class="nav-link" href="/registrar-mascota">Registrar Mascota</a></li>
+                    <span id="navUserSection">
+                        <li class="nav-item" id="loginNavItem"><a class="nav-link btn btn-outline-light nav-button" href="#" data-toggle="modal" data-target="#loginModal">Ingresar</a></li>
+                        <li class="nav-item" id="registerNavItem"><a class="nav-link btn btn-dark nav-button ml-2" href="#" data-toggle="modal" data-target="#registerModal">Registrarme</a></li>
+                    </span>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+      <section class="container mt-5">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h2>Mis Solicitudes de Adopción</h2>
+          <button class="btn btn-outline-primary" id="refreshRequestsButton"><i class="fas fa-sync-alt"></i> Actualizar</button>
+        </div>
+        <div id="solicitudesList" class="row mt-4">
+          <p class="col-12">Cargando tus solicitudes...</p>
+        </div>
+      </section>
+    </main>
+
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true"> <div class="modal-dialog" role="document"> <div class="modal-content"> <div class="modal-header"> <h5 class="modal-title" id="loginModalLabel">Iniciar Sesión</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar"><span aria-hidden="true">&times;</span></button> </div> <div class="modal-body"> <form id="loginForm"> <div class="form-group"> <label for="loginEmail">Correo electrónico</label> <input type="email" class="form-control" id="loginEmail" placeholder="correo@ejemplo.com" required> </div> <div class="form-group"> <label for="loginPassword">Contraseña</label> <input type="password" class="form-control" id="loginPassword" placeholder="Contraseña" required> </div> <button type="submit" class="btn btn-dark btn-block">Ingresar</button> </form> </div> <div class="modal-footer"> <p class="w-100 text-center">¿No tienes cuenta? <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#registerModal">Regístrate aquí</a></p> </div> </div> </div> </div>
+    <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true"> <div class="modal-dialog" role="document"> <div class="modal-content"> <div class="modal-header"> <h5 class="modal-title" id="registerModalLabel">Registrarse</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar"><span aria-hidden="true">&times;</span></button> </div> <div class="modal-body"> <form id="registerForm"> <div class="form-group"> <label for="registerName">Nombre completo</label> <input type="text" class="form-control" id="registerName" placeholder="Tu nombre" required> </div> <div class="form-group"> <label for="registerEmail">Correo electrónico</label> <input type="email" class="form-control" id="registerEmail" placeholder="correo@ejemplo.com" required> </div> <div class="form-group"> <label for="registerPassword">Contraseña</label> <input type="password" class="form-control" id="registerPassword" placeholder="Contraseña" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" title="Debe contener al menos una mayúscula, una minúscula, un número y mínimo 6 caracteres"> </div> <div class="form-group"> <label for="registerCity">Ciudad</label> <select class="form-control" id="registerCity" required><option value="">Selecciona tu ciudad</option><option value="guadalajara">Guadalajara</option><option value="zapopan">Zapopan</option><option value="tlaquepaque">Tlaquepaque</option><option value="tonala">Tonalá</option></select> </div> <button type="submit" class="btn btn-dark btn-block">Registrarme</button> </form> </div> <div class="modal-footer"> <p class="w-100 text-center">¿Ya tienes cuenta? <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#loginModal">Inicia sesión</a></p> </div> </div> </div> </div>
+
+    <footer class="footer"> <div class="container">
+            <div class="text-center"><p>&copy; 2025 Adottami. Todos los derechos reservados.</p></div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="/scripts/app.js"></script>
+</body>
+</html>

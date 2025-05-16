@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <title>Detalle de Mascota - Adottami</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css">
+    <link rel="stylesheet" href="/styles/main.css"> <style>
+        /* Estilos específicos de Details.html que ya tenías */
+        .pet-image { height: 400px; object-fit: cover; border-radius: 10px; }
+        .pet-thumbnail { height: 80px; width: 100%; object-fit: cover; cursor: pointer; border-radius: 5px; transition: opacity 0.3s; }
+        .pet-thumbnail:hover { opacity: 0.8; }
+        .pet-info-card { border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        .feature-icon { background-color: #f8f9fa; padding: 10px; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; margin-right: 15px; }
+        .owner-info { background-color: #f8f9fa; border-radius: 10px; padding: 20px; }
+        .btn-adopt { border-radius: 30px; padding: 10px 30px; }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand font-weight-bold" href="/home">Adottami</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="/home">Inicio</a></li>
+                    <li class="nav-item" id="misSolicitudesNavItem" style="display: none;"><a class="nav-link" href="/mis-solicitudes">Mis Solicitudes</a></li>
+                    <li class="nav-item" id="registrarMascotaNavItem" style="display: none;"><a class="nav-link" href="/registrar-mascota">Registrar Mascota</a></li>
+                    <span id="navUserSection">
+                        <li class="nav-item" id="loginNavItem"><a class="nav-link btn btn-outline-light nav-button" href="#" data-toggle="modal" data-target="#loginModal">Ingresar</a></li>
+                        <li class="nav-item" id="registerNavItem"><a class="nav-link btn btn-dark nav-button ml-2" href="#" data-toggle="modal" data-target="#registerModal">Registrarme</a></li>
+                    </span>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container my-5" id="petDetailContainer">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb bg-transparent pl-0">
+                <li class="breadcrumb-item"><a href="/home">Inicio</a></li>
+                <li class="breadcrumb-item"><a href="/home">Mascotas</a></li>
+                <li class="breadcrumb-item active" aria-current="page" id="breadcrumbPetName">Cargando...</li>
+            </ol>
+        </nav>
+
+        <div class="row">
+            <div class="col-lg-6 mb-4">
+                <img src="/images/default-pet.png" class="img-fluid pet-image mb-3" id="mainImage" alt="Cargando imagen...">
+                <div class="row" id="petThumbnailsRow">
+                    </div>
+            </div>
+            
+            <div class="col-lg-6">
+                <div class="pet-info-card p-4">
+                    <h2 class="font-weight-bold mb-4" id="petName">Cargando...</h2>
+                    
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="feature-icon"><i class="fas fa-paw"></i></div>
+                        <div>
+                            <h6 class="mb-0">Tipo de animal</h6>
+                            <p class="mb-0" id="petTypeBreed">Cargando...</p>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="feature-icon"><i class="fas fa-birthday-cake"></i></div>
+                        <div>
+                            <h6 class="mb-0">Edad</h6>
+                            <p class="mb-0" id="petAge">Cargando...</p>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="feature-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div>
+                            <h6 class="mb-0">Ubicación</h6>
+                            <p class="mb-0" id="petLocation">Cargando...</p>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="feature-icon"><i class="fas fa-heartbeat"></i></div>
+                        <div>
+                            <h6 class="mb-0">Estado de salud</h6>
+                            <p class="mb-0" id="petHealth">Cargando...</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <h5>Descripción</h5>
+                        <p id="petDescription">Cargando...</p>
+                    </div>
+                    
+                    <div class="owner-info mt-4">
+                        <h5>Acerca del dueño/rescatista</h5>
+                        <p>Nombre: <span id="ownerName">Cargando...</span></p>
+                        <p>Contacto: <span id="ownerContact">Cargando...</span></p>
+                    </div>
+
+                    <div class="text-center mt-4" id="adoptButtonContainer">
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Iniciar Sesión</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <form id="loginForm">
+                        <div class="form-group">
+                            <label for="loginEmailDetails">Correo electrónico</label> <input type="email" class="form-control" id="loginEmailDetails" placeholder="correo@ejemplo.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="loginPasswordDetails">Contraseña</label>
+                            <input type="password" class="form-control" id="loginPasswordDetails" placeholder="Contraseña" required>
+                        </div>
+                        <button type="submit" class="btn btn-dark btn-block">Ingresar</button>
+                    </form>
+                </div>
+                 <div class="modal-footer">
+                    <p class="w-100 text-center">¿No tienes cuenta? <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#registerModal">Regístrate aquí</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                     <h5 class="modal-title" id="registerModalLabel">Registrarse</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <form id="registerFormDetails"> <div class="form-group">
+                            <label for="registerNameDetails">Nombre completo</label>
+                            <input type="text" class="form-control" id="registerNameDetails" placeholder="Tu nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="registerEmailDetails">Correo electrónico</label>
+                            <input type="email" class="form-control" id="registerEmailDetails" placeholder="correo@ejemplo.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="registerPasswordDetails">Contraseña</label>
+                            <input type="password" class="form-control" id="registerPasswordDetails" placeholder="Contraseña" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" title="Debe contener al menos una mayúscula, una minúscula, un número y mínimo 6 caracteres">
+                        </div>
+                        <div class="form-group">
+                            <label for="registerCityDetails">Ciudad</label>
+                             <select class="form-control" id="registerCityDetails" required>
+                                <option value="">Selecciona tu ciudad</option>
+                                <option value="guadalajara">Guadalajara</option>
+                                <option value="zapopan">Zapopan</option>
+                                <option value="tlaquepaque">Tlaquepaque</option>
+                                <option value="tonala">Tonalá</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-dark btn-block">Registrarme</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <p class="w-100 text-center">¿Ya tienes cuenta? <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#loginModal">Inicia sesión</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="footer"> <div class="container">
+            <div class="text-center"><p>&copy; 2025 Adottami. Todos los derechos reservados.</p></div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="/scripts/app.js"></script>
+</body>
+</html>

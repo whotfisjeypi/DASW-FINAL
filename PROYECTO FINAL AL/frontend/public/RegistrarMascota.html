@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registrar Mascota - Adottami</title>
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand font-weight-bold" href="/home">Adottami</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="/home">Inicio</a></li>
+                    <li class="nav-item" id="misSolicitudesNavItem" style="display: none;"><a class="nav-link" href="/mis-solicitudes">Mis Solicitudes</a></li>
+                    <li class="nav-item" id="registrarMascotaNavItem" style="display: none;"><a class="nav-link" href="/registrar-mascota">Registrar Mascota</a></li>
+                    <span id="navUserSection">
+                        <li class="nav-item" id="loginNavItem"><a class="nav-link btn btn-outline-light nav-button" href="#" data-toggle="modal" data-target="#loginModal">Ingresar</a></li>
+                        <li class="nav-item" id="registerNavItem"><a class="nav-link btn btn-dark nav-button ml-2" href="#" data-toggle="modal" data-target="#registerModal">Registrarme</a></li>
+                    </span>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="container mt-5">
+      <h2 id="formTitle">Registrar Nueva Mascota</h2>
+      <form id="registerPetForm" class="mt-4">
+        <div class="form-group">
+          <label for="petNameReg">Nombre</label>
+          <input type="text" class="form-control" id="petNameReg" name="name" placeholder="Nombre de la mascota" required>
+        </div>
+        <div class="form-group">
+          <label for="petTypeReg">Tipo de Animal</label>
+          <select class="form-control" id="petTypeReg" name="type" required>
+            <option value="">Selecciona tipo</option>
+            <option value="Perro">Perro</option>
+            <option value="Gato">Gato</option>
+            <option value="Conejo">Conejo</option>
+            <option value="Ave">Ave</option>
+            <option value="Otro">Otro</option>
+          </select>
+        </div>
+        <div class="form-group">
+            <label for="petBreedReg">Raza (opcional)</label>
+            <input type="text" class="form-control" id="petBreedReg" name="breed" placeholder="Ej: Labrador, Siamés">
+        </div>
+        <div class="form-group">
+          <label for="petAgeReg">Edad (en años)</label>
+          <input type="number" class="form-control" id="petAgeReg" name="age" placeholder="Edad en años" required min="0">
+        </div>
+        <div class="form-group">
+          <label for="petCityReg">Ciudad</label>
+          <input type="text" class="form-control" id="petCityReg" name="city" placeholder="Ciudad" required>
+        </div>
+        <div class="form-group">
+            <label for="petHealthReg">Estado de Salud</label>
+            <input type="text" class="form-control" id="petHealthReg" name="healthStatus" placeholder="Ej: Sano, Vacunado, Necesita tratamiento" required>
+        </div>
+        <div class="form-group">
+            <label for="petPhotosReg">Fotos (URLs separadas por coma)</label>
+            <input type="text" class="form-control" id="petPhotosReg" name="photos" placeholder="http://ejemplo.com/foto1.jpg, http://ejemplo.com/foto2.jpg">
+            <small class="form-text text-muted">Pega las URLs de las imágenes. Deja vacío si no tienes. Separa con comas si son varias.</small>
+        </div>
+        <div class="form-group">
+          <label for="petDescriptionReg">Descripción</label>
+          <textarea class="form-control" id="petDescriptionReg" name="description" rows="3" required></textarea>
+        </div>
+        <div class="form-group" id="petStatusGroup" style="display: none;"> <label for="petStatusReg">Estado de la Mascota</label>
+            <select class="form-control" id="petStatusReg" name="status">
+                <option value="disponible">Disponible</option>
+                <option value="en proceso">En Proceso</option>
+                <option value="adoptado">Adoptado</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-dark">Guardar Mascota</button>
+      </form>
+    </section>
+
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true"> <div class="modal-dialog" role="document"> <div class="modal-content"> <div class="modal-header"> <h5 class="modal-title" id="loginModalLabel">Iniciar Sesión</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar"><span aria-hidden="true">&times;</span></button> </div> <div class="modal-body"> <form id="loginForm"> <div class="form-group"> <label for="loginEmail">Correo electrónico</label> <input type="email" class="form-control" id="loginEmail" placeholder="correo@ejemplo.com" required> </div> <div class="form-group"> <label for="loginPassword">Contraseña</label> <input type="password" class="form-control" id="loginPassword" placeholder="Contraseña" required> </div> <button type="submit" class="btn btn-dark btn-block">Ingresar</button> </form> </div> <div class="modal-footer"> <p class="w-100 text-center">¿No tienes cuenta? <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#registerModal">Regístrate aquí</a></p> </div> </div> </div> </div>
+    <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true"> <div class="modal-dialog" role="document"> <div class="modal-content"> <div class="modal-header"> <h5 class="modal-title" id="registerModalLabel">Registrarse</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar"><span aria-hidden="true">&times;</span></button> </div> <div class="modal-body"> <form id="registerForm"> <div class="form-group"> <label for="registerName">Nombre completo</label> <input type="text" class="form-control" id="registerName" placeholder="Tu nombre" required> </div> <div class="form-group"> <label for="registerEmail">Correo electrónico</label> <input type="email" class="form-control" id="registerEmail" placeholder="correo@ejemplo.com" required> </div> <div class="form-group"> <label for="registerPassword">Contraseña</label> <input type="password" class="form-control" id="registerPassword" placeholder="Contraseña" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" title="Debe contener al menos una mayúscula, una minúscula, un número y mínimo 6 caracteres"> </div> <div class="form-group"> <label for="registerCity">Ciudad</label> <select class="form-control" id="registerCity" required><option value="">Selecciona tu ciudad</option><option value="guadalajara">Guadalajara</option><option value="zapopan">Zapopan</option><option value="tlaquepaque">Tlaquepaque</option><option value="tonala">Tonalá</option></select> </div> <button type="submit" class="btn btn-dark btn-block">Registrarme</button> </form> </div> <div class="modal-footer"> <p class="w-100 text-center">¿Ya tienes cuenta? <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#loginModal">Inicia sesión</a></p> </div> </div> </div> </div>
+
+    <footer class="footer"> <div class="container">
+            <div class="text-center"><p>&copy; 2025 Adottami. Todos los derechos reservados.</p></div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="/scripts/app.js"></script>
+</body>
+</html>

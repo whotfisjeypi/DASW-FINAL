@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Pruebas API - Proyecto</title>
+</head>
+<body>
+  <h1>Pruebas API - Registro, Login y Ruta Protegida</h1>
+
+  <h2>1. Registro</h2>
+  <button onclick="registrar()">Registrar usuario</button>
+
+  <h2>2. Login</h2>
+  <button onclick="login()">Iniciar sesión</button>
+
+  <h2>3. Obtener datos del usuario (ruta protegida /api/auth/me)</h2>
+  <button onclick="getDatosUsuario()">GET /api/auth/me</button>
+
+  <h3>Respuesta del servidor:</h3>
+  <pre id="resultado"></pre>
+
+  <script>
+    const api = "http://localhost:3000/api";
+
+    async function registrar() {
+      const res = await fetch(`${api}/auth/register`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: "Usuario Prueba",
+          email: "prueba@example.com",
+          password: "password123",
+          city: "Zapopan",
+          role: "adoptante"
+        })
+      });
+
+      const data = await res.json();
+      mostrar(data);
+    }
+
+    async function login() {
+      const res = await fetch(`${api}/auth/login`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: "prueba@example.com",
+          password: "password123"
+        })
+      });
+
+      const data = await res.json();
+      if (data.token) {
+        localStorage.setItem("token", data.token);
+      }
+      mostrar(data);
+    }
+
+    async function getDatosUsuario() {
+      const token = localStorage.getItem("token");
+      if (!token) {
+        mostrar({ error: "No hay token almacenado. Por favor, inicia sesión." });
+        return;
+      }
+
+      const res = await fetch(`${api}/auth/me`, {
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
+
+      try {
+        const data = await res.json();
+        mostrar(data);
+      } catch (error) {
+        const textError = await res.text();
+        mostrar({ error: `Error al procesar respuesta: ${textError}`, status: res.status });
+      }
+    }
+
+    function mostrar(data) {
+      document.getElementById("resultado").textContent = JSON.stringify(data, null, 2);
+    }
+  </script>
+</body>
+</html>
