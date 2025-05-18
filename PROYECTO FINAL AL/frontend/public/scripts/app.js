@@ -238,12 +238,6 @@ document.addEventListener("DOMContentLoaded", function() {
             return;
         }
         
-        // Borra el contenido anterior (placeholders) solo si el contenedor de detalles principal existe
-        // y antes de poner el mensaje de "Cargando..." dentro de ese mismo contenedor.
-        // O mejor, tener un div específico para el contenido dinámico dentro de petDetailContainer.
-        // Por ahora, los placeholders en el HTML se reemplazarán directamente.
-        // La línea `if (detailContainer) detailContainer.innerHTML = '';` se elimina para no borrar los elementos con IDs.
-        
         // Actualizar placeholders a "Cargando..." si no lo están ya
         document.getElementById('petName').textContent = 'Cargando...';
         // (y así para los otros campos si se desea un feedback más granular)
